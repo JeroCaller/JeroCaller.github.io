@@ -1,11 +1,10 @@
 개발 공부 기록용 개인 블로그
 
-블로그 주소: 
+블로그 주소: https://jerocaller.github.io/
 
 
 ## License & Copyright
------------------
-블로그 테마는 Minimal Mistakes Jekyll theme 를 이용하였습니다. 
+블로그 테마는 [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes)을 이용하였습니다. 
 
 만약 제 블로그 내 포스트들을 이용하고자 한다면 다음의 사항을 지켜주세요.
 
