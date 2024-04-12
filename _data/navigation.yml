@@ -1,0 +1,34 @@
+# main links
+main:
+  - title: "Category"
+    url: /categories/
+  - title: "Tag"
+    url: /tags/
+  - title: "Search"
+    url: /search/
+  - title: "By Year"
+    url: /year-archive/
+  # - title: "About"
+  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
+
+docs:
+  - title: "대목차1"
+    children:
+      - title: "Category"
+        url: /categories/
+      - title: "Tag"
+        url: /tags/
+
+# 왼쪽 사이드바에 카테고리 및 태그를 나타낼 수 있음.
+# 각 카테고리 또는 태그 옆에 해당 포스트 수도 표시 가능.
+counts:
+  - title: "카테고리"
+    use: true
+  - title: "태그"
+    use: false
