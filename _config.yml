@@ -21,7 +21,7 @@ title_separator          : "|"
 subtitle                 : "세상으로의 항해 Halo, world!" # site tagline that appears below site title in masthead
 name                     : "JeroCaller"
 description              : "코딩 학습 기록용 개인 블로그"
-url                      : "https://JeroCaller.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://jerocaller.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"

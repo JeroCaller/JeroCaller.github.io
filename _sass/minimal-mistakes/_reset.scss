@@ -22,7 +22,7 @@ html {
 
   @include breakpoint($x-large) {
     // font-size: 22px; // 기본 설정
-    font-size: 18px;  // 내 설정
+    font-size: 16px;  // 내 설정
   }
 
   -webkit-text-size-adjust: 100%;
