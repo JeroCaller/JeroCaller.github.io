@@ -20,6 +20,7 @@
 
 .archive__item {
   position: relative;
+  //display: inline-block;
 
   a {
     position: relative;
@@ -28,6 +29,7 @@
 
   a[rel="permalink"] {
     position: static;
+    //position: relative;
   }
 }
 
@@ -49,6 +51,7 @@
   line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
+  //display: inline-block;
 
   a[rel="permalink"]::before {
     content: '';
@@ -89,9 +92,11 @@
   position: relative;
   border-radius: $border-radius;
   overflow: hidden;
+  //display: inline-block;
+  //width: 15em;
 
   img {
-    width: 100%;
+    width: 90%;
   }
 }
 
@@ -212,6 +217,7 @@
   .archive__item-title {
     margin-top: 0.5em;
     font-size: $type-size-5;
+    //width: 100%;
   }
 
   .archive__item-excerpt {
