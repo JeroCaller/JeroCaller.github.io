@@ -29,6 +29,7 @@ tag: ["자료구조", "알고리즘", "로드맵", "data structure", "algorithm"
 7. [[알고리즘] 정렬 알고리즘 (2)](/algorithm/algorithm-sort-algorithm-2/)
 8. [[알고리즘] 이진 트리 (Binary tree)](/algorithm/algorithm-binary-tree/)
 9. [[알고리즘] 투 포인터와 슬라이딩 윈도우 알고리즘](/algorithm/algorithm-two-pointers-sliding-window/)
+10. [[알고리즘] 동적 계획법 (Dynamic Programming)](/algorithm/algorithm-dynamic-programming/)
 
 ## 그래프 알고리즘
 10. [[알고리즘][그래프] 그래프 개요](/algorithm/algorithm-graph-introduction/)
