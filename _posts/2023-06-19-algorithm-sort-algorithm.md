@@ -542,30 +542,16 @@ Reference
 
 [1] George T. Heineman, “Learning Algorithms: A Programmer’s Guide to Writing Better Code”, (O’Reilly, 2021)
 
-[2] 
+[2] [[알고리즘] 합병 정렬(merge sort)이란 - Heee's Development Blog](https://gmlwjd9405.github.io/2018/05/08/algorithm-merge-sort.html)
 
-[[알고리즘] 합병 정렬(merge sort)이란 - Heee's Development Blog](https://gmlwjd9405.github.io/2018/05/08/algorithm-merge-sort.html)
+[3] [알고리즘 \| 합병정렬(Merge Sort) 시간복잡도 이해하기](https://splendidlolli.tistory.com/366)
 
-[3]
+[4] [퀵 정렬](https://ko.wikipedia.org/wiki/퀵_정렬)
 
-[알고리즘 | 합병정렬(Merge Sort) 시간복잡도 이해하기](https://splendidlolli.tistory.com/366)
+[5] [[알고리즘] 퀵 정렬(quick sort)이란 - Heee's Development Blog](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
 
-[4]
+[6] [build heap 시간복잡도 O(n) 이해하기](https://leeminju531.tistory.com/33)
 
-[퀵 정렬](https://ko.wikipedia.org/wiki/퀵_정렬)
+[7] [힙 정렬](https://ko.wikipedia.org/wiki/힙_정렬)
 
-[5]
-
-[[알고리즘] 퀵 정렬(quick sort)이란 - Heee's Development Blog](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
-
-[6]
-
-[build heap 시간복잡도 O(n) 이해하기](https://leeminju531.tistory.com/33)
-
-[7]
-
-[힙 정렬](https://ko.wikipedia.org/wiki/힙_정렬)
-
-[8]
-
-[스털링 근사](https://ko.wikipedia.org/wiki/스털링_근사)
+[8] [스털링 근사](https://ko.wikipedia.org/wiki/스털링_근사)
