@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 locale                   : "ko-KR"
 title                    : "Dev Jero on a Voyage"
 title_separator          : "|"
-subtitle                 : "세상으로의 항해 Halo, world!" # site tagline that appears below site title in masthead
+subtitle                 : "let meDrink = new ZeroCola();" # site tagline that appears below site title in masthead
 name                     : "JeroCaller"
 description              : "코딩 학습 기록용 개인 블로그"
 url                      : "https://jerocaller.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
