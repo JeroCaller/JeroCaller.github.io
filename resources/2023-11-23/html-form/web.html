@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML로 간단한 웹 문서 만들기</title>
+</head>
+<body>
+    <h1>폼(Form)</h1>
+    <form>
+        <fieldset>
+            <legend>회원 가입</legend>
+            <div>
+                <label>ID 
+                    <input type="text" 
+                    size="15" value="15글자 제한" maxlength="15">
+                </label>
+                <input type="image" src="/resources/2023-11-23/html-form/id_overlap_check.png"
+                alt="id중복확인" width="80">
+            </div>
+            <div>
+                <label for="pw">비밀번호 </label>
+                <input type="password" id="pw" size="15">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>개인 정보</legend>
+            <div>
+                <label>휴대폰 번호 <input type="tel"></label>
+            </div>
+            <div>
+                <label>이메일 <input type="email"></label>
+            </div>
+            <div>
+                <label>
+                    생년 월일 입력
+                    <input type="date">
+                </label>
+            </div>
+            <div>
+                <p>
+                    <b>관심분야</b><br>
+                    당신의 현재 관심분야를 선택하세요(중복 선택 가능)
+                </p>
+                <ul type="none">
+                    <li>
+                        <label><input type="checkbox"> 요리</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox"> 독서</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox"> 인터넷/IT</label>
+                    </li>
+                    <li>
+                        <label><input type="checkbox"> 게임</label>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p><b>요금제</b></p>
+                <label>
+                    <input type="radio" value="free" name="payment" checked> 무료
+                </label>
+                <label>
+                    <input type="radio" value="standard" name="payment">스탠다드(월8000원)
+                </label>
+                <label>
+                    <input type="radio" value="premium" name="payment">프리미엄(월12,000원)
+                </label>
+            </div>
+            <div>
+                <p>
+                    <b>프로필 사진</b><br>
+                    원하는 프로필 사진을 첨부하세요.
+                </p>
+                <input type="file">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>설문 조사</legend>
+            <div>
+                <p>1. 일주일에 몇 번 운동하십니까?</p>
+                <label>운동 횟수 입력 
+                    <input type="number" value="0" min="0" max="100">
+                </label>
+            </div>
+            <div>
+                <p>1-1. 운동을 만약에 한다면, 한 번 할 때 강도는 어느 정도입니까?</p>
+                <input type="range" value="0" min="0" max="100" 
+                oninput="this.nextElementSibling.value = this.value">
+                <output>0</output>%
+            </div>
+            <div>
+                <p>2. 평소에 하루 중 언제 잠에서 깨십니까?</p>
+                <input type="time" value="09:00">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>그 외</legend>
+            <div>
+                <label>첨부할 url <input type="url"></label>
+            </div>
+            <div>
+                <label>검색하기 <input type="search"></label>
+            </div>
+            <input type="button" value="빈 버튼">
+        </fieldset>
+        <input type="submit" value="제출">
+        <input type="reset" value="리셋">
+    </form>
+</body>
+</html>
