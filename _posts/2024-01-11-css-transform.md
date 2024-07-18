@@ -387,14 +387,14 @@ rotate() 함수에는 단 하나의 입력값만 들어간다.
 ```
 
 <style>
-    #img-box {
+    .img-box {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1em 1em;
         width: 100%;
     }
 </style>
-<div id="img-box">
+<div class="img-box">
     <img src="/images/2024-01-11/css-transform/12.png">
     <img src="/images/2024-01-11/css-transform/13.png">
     <img src="/images/2024-01-11/css-transform/14.png">
@@ -479,11 +479,11 @@ rotate() 함수에는 단 하나의 입력값만 들어간다.
 }
 ```
 
-![20240116_08250117.png](/images/2024-01-11/css-transform/20.png)
-
-![20240116_08250649.png](/images/2024-01-11/css-transform/21.png)
-
-![20240116_08251171.png](/images/2024-01-11/css-transform/22.png)
+<div class="img-box">
+    <img src="/images/2024-01-11/css-transform/20.png" />
+    <img src="/images/2024-01-11/css-transform/21.png" />
+    <img src="/images/2024-01-11/css-transform/22.png" />
+</div>
 
 ---
 References
