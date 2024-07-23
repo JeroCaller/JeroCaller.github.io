@@ -58,7 +58,7 @@ HTML DOM tree를 구성하는 노드에는 다음이 존재한다.
 HTML 요소 중 특정 요소를 자바스크립트에서 DOM을 이용하여 가져오기 위한 여러 가지 메서드들이 있다. 그런데 이 메서드들의 공통점은 CSS에서 등장한 개념인 id, class, 태그 선택자들을 그대로 사용하여 특정 요소를 가져올 수 있다는 점이다. 
 
 - 요소명.getElementByID(”id명”) : HTML 내 id 선택자의 이름을 그대로 입력하여 해당 요소(요소 노드)를 가져온다. HTML 내에서 id 선택자의 이름은 하나만 존재해야하므로 해당 메서드의 반환값도 1개이다.
-- 요소명.getElementsByClassName(”클래스명”) : HTML 내 class 선택자 이름을 입력하여 해당 요소들을 가져온다. id 선택자와 달리, class 선택자는 문서 내에서 여러 개 존재할 수 있으므로 여러 개의 요소들이 담긴 HTMLCollection 이라는 유사 배열 객체로 반환된다. (유사 배열 객체에 대해서는 [[JS] 유사 배열 객체 (Array-like Object)]() (해당 문서 준비 중...) 문서 참조)
+- 요소명.getElementsByClassName(”클래스명”) : HTML 내 class 선택자 이름을 입력하여 해당 요소들을 가져온다. id 선택자와 달리, class 선택자는 문서 내에서 여러 개 존재할 수 있으므로 여러 개의 요소들이 담긴 HTMLCollection 이라는 유사 배열 객체로 반환된다. (유사 배열 객체에 대해서는 [[JS] 유사 배열 객체 (Array-like Object)](/javascript/js-array-like-object/)  문서 참조)
 - 요소명.getElementsByTagName(”태그명”) : HTML 내 p, div와 같은 일반 태그명들을 사용하는 요소들을 가져온다. 역시 한 문서 내에서 여러 개의 요소를 가질 수 있으므로 여러 개의 요소들을 HTMLCollection 유사 배열 객체로 반환한다.
 
 getElement… 로 시작되는 메서드들은 해당 요소의 요소 노드만 가져올 수 있다. 만약 텍스트, 속성 노드에 대해서도 접근하고자 한다면 다음의 메서드들을 사용해야 한다. 
