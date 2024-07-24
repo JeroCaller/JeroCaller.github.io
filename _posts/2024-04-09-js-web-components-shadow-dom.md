@@ -50,7 +50,7 @@ DOM tree를 다시 정리해보자면 다음과 같다.
 
 shadow DOM을 이용하면 외부 요소에 영향을 받지 않는 나만의 웹 컴포넌트를 제작할 수 있는데, 자바스크립트에서 이 shadow DOM을 이용하는 것에 대해 살펴보겠다. 
 
-shadow DOM은 앞서 언급했듯, 강력한 캡슐화를 제공하기에, 앞서 [[JS][web components] Custom elements](/js-web-components-custom-elements/) 에서 살펴봤던 커스텀 요소와 같이 사용하여 웹 컴포넌트를 제작하는 데에 쓰일 수도 있다. 
+shadow DOM은 앞서 언급했듯, 강력한 캡슐화를 제공하기에, 앞서 [[JS][web components] Custom elements](/javascript/js-web-components-custom-elements/) 에서 살펴봤던 커스텀 요소와 같이 사용하여 웹 컴포넌트를 제작하는 데에 쓰일 수도 있다. 
 
 다음은 custom elements와 shadow DOM을 합쳐 사용한 예제이다. 
 
