@@ -145,8 +145,24 @@ public class SiteUsers {
 - `@Column` : Entity 클래스의 필드명과 테이블의 컬럼명을 매핑시키기 위한 어노테이션. 이미 이름을 맞게 지었다면 생략해도 되는 어노테이션이다. `name` 요소를 사용하여 테이블 내 실제 컬럼명을 작성하면 그에 맞게 매핑된다. 또한 해당 어노테이션에는 그 외 다른 요소들도 지원한다.
     - `nullable` : true, false 중 하나값을 적용할 수 있으며, true 시 해당 필드만 생략하여 새 레코드를 삽입해도 되도록 하고, false 시 해당 필드에도 반드시 값을 입력하도록 강제할 수 있다.
     - `insertable` : true, false 중 하나의 값을 사용. Entity에서 해당 필드에 새 값을 입력할 수 있게 할 것인지 결정.
-    - `updatable` : true, false 중 하나의 값을 사용. Entity에서 해당 필드의 값을 수정할 수 있게 할 것인지 결정.
+    - `updatable` : true, false 중 하나의 값을 사용. Entity에서 해당 필드의 값을 수정할 수 있게 할 것인지 결정. 
+	- `columnDefinition` : 자바에서 제공하는 primitive type 또는 객체 타입에는 없는 타입이 DB에는 존재한다. TEXT 등이 그 예인데, `columnDefinition` 속성값에 이를 명시하여 어떤 타입인지 자바 컴파일러에 알려줄 수 있다.
+	- `length` : 입력값의 최대 길이 설정. DB에서 `VARCHAR(20)` 이라고 되어있으면 `length = 20` 이라고 명시할 수 있다.
+	- `unique` : 해당 필드에 unique key가 걸려있는 경우 이를 명시할 때 사용. true, false 중 하나를 명시한다.
     - 이 외에도 여러 요소들이 있다.
+- `@PrePersist` : 메서드에 적용 시 persist, 즉 데이터가 저장되기 전에 해당 메서드가 수행되도록 한다. 특정 필드값을 초기화하고자 할 때 사용할 수 있다. 
+	```java
+	@Entity
+	public class MyEntity {
+			// 생략
+			private LocalDateTime registerDate;
+			
+			@PrePersist
+			private void initDate() {
+					registerDate = LocalDateTIme.now();
+			}
+	}
+	```
 
 # JPA Repository
 
