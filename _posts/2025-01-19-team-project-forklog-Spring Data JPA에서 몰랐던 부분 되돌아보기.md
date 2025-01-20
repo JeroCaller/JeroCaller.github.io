@@ -238,7 +238,7 @@ public void insertLocationWrong(LocationRequest requestDto) {
 org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing
 ```
 
-위 코드를 다시 살펴보면, LocationRoads 엔티티는 `save()` 를 거치지만, 각각 대분류, 중분류에 해당하는 LocationGroups, Locations 엔티티는 새로 생성될 경우 따로 `save()` 메서드를 통해 영속화되는 과정을 거치지 않고 있기 때문이다. LocationRoads 엔티티에는 FK 필드를 채워야 하는데, 이에 해당하는 Locations 객체가 미리 영속화되어 있지 않기에 발생한 문제이다. 이에 대핸 해결책은 두 가지 정도가 있다. 하나는 상위 엔티티인 LocationGroups, Locations에 대해서도 `save()` 메서드를 통해 영속화시키는 코드를 추가하는 것이고, 또 하나는 cascade, 즉 영속성 전이를 설정하는 방법이다. 
+위 코드를 다시 살펴보면, LocationRoads 엔티티는 `save()` 를 거치지만, 각각 대분류, 중분류에 해당하는 LocationGroups, Locations 엔티티는 새로 생성될 경우 따로 `save()` 메서드를 통해 영속화되는 과정을 거치지 않고 있기 때문이다. LocationRoads 엔티티에는 FK 필드를 채워야 하는데, 이에 해당하는 Locations 객체가 미리 영속화되어 있지 않기에 발생한 문제이다. 이에 대한 해결책은 두 가지 정도가 있다. 하나는 상위 엔티티인 LocationGroups, Locations에 대해서도 `save()` 메서드를 통해 영속화시키는 코드를 추가하는 것이고, 또 하나는 cascade, 즉 영속성 전이를 설정하는 방법이다. 
 
 먼저, `save()` 메서드, 즉 비영속 엔티티 객체를 영속화시키는 코드를 추가하는 방법이다. 
 
