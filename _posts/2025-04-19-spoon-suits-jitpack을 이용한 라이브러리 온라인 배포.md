@@ -5,7 +5,7 @@ tag: ["Personal Project", "Library", "Spring Boot", "Spoon Suits", "Maven", "Jit
 ---
 
 
-저번 글 “[[Spoon Suits] 스프링부트 기반 라이브러리 제작 후 로컬 maven 저장소에 배포하기](/personal%20project/spoon-suits-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EA%B8%B0%EB%B0%98-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%9C%EC%9E%91-%ED%9B%84-maven-%EB%A1%9C%EC%BB%AC-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/)” ****에서는 직접 만든 스프링부트 라이브러리를 로컬 기기에서 배포 및 사용하는 방법에 대해 다뤄보았다. 이번 글에서는 이 라이브러리를 전 세계 어디서든, 또는 언제든지 사용할 수 있도록 온라인으로 배포하기 위해 필자가 겪고 배운 과정들을 적어보고자 한다. 
+저번 글 “[[Spoon Suits] 스프링부트 기반 라이브러리 제작 후 로컬 maven 저장소에 배포하기](/personal%20project/spoon-suits-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EA%B8%B0%EB%B0%98-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%9C%EC%9E%91-%ED%9B%84-maven-%EB%A1%9C%EC%BB%AC-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/)”에서는 직접 만든 스프링부트 라이브러리를 로컬 기기에서 배포 및 사용하는 방법에 대해 다뤄보았다. 이번 글에서는 이 라이브러리를 전 세계 어디서든, 또는 언제든지 사용할 수 있도록 온라인으로 배포하기 위해 필자가 겪고 배운 과정들을 적어보고자 한다. 
 
 필자가 완성한 Spoon Suits 라이브러리의 Github repository는 다음을 참고. 
 
