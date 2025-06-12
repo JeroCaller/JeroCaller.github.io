@@ -162,11 +162,11 @@ web.xml
 
 3) MariaDB의 jdbc Driver를 설치를 아직 안하였다. 다음의 사이트에서 mariaDB의 jdbc driver를 다운로드 받는다.
     
-    [Maven Repository: org.mariadb.jdbc » mariadb-java-client » 3.4.1](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client/3.4.1)
+  [Maven Repository: org.mariadb.jdbc » mariadb-java-client » 3.4.1](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client/3.4.1)
     
-    ![1.PNG](/images/2024-09-09/jdbc-server-server-and-db-architecture/3.png)
+  ![1.PNG](/images/2024-09-09/jdbc-server-server-and-db-architecture/3.png)
     
-    다운로드 받은 jar파일을 프로젝트 폴더 내 WEB-INF/lib에 위치시킨 후, 해당 JAR 파일을 해당 프로젝트에 등록시킨다. 
+  다운로드 받은 jar파일을 프로젝트 폴더 내 WEB-INF/lib에 위치시킨 후, 해당 JAR 파일을 해당 프로젝트에 등록시킨다. 
     
 
 이제 DB 연동 과정은 끝났다. 자바 코드에서 다음의 코드를 이용하여 바로 DB에 접속하여 사용할 수 있다. 
