@@ -203,7 +203,7 @@ public class UserClassInfo {
 
 페이징과 관련하여 Spring data JPA에서는 다음의 클래스 및 인터페이스들을 제공한다. 
 
-- `Page<Entity>` : 특정 페이지의 데이터들만을 담기 위해 사용되는 인터페이스. `java.util.List` 를 상속받는다고 한다.
+- `Page<Entity>` : 특정 페이지의 데이터들만을 담기 위해 사용되는 인터페이스. 
 - `Pageable` : 페이지 요청에 사용되는 인터페이스. 주로, 쿼리 메서드의 매개변수의 타입으로 사용되며, 이 인터페이스의 구현체인 `PageRequest.of()` 메서드를 이용하여 실질적인 페이지 요청 정보를 repository에 전달하여 요청하는 방식이다.
 - `PageRequest` : `Pageable` 인터페이스의 구현체이며, 여러 메서드가 있지만 대표적으로 `of()` 메서드를 이용하여 실질적인 페이지 요청 정보를 담아 전달하여 특정 페이지의 데이터만 조회하도록 할 수 있다.
     - `of(int pageNumber, int pageSize)` : 전체 페이지 중 조회하고자 하는 특정 페이지와, 한 페이지 당 데이터의 개수를 설정한다. 예를 들어 전체 데이터가 20개가 있고, 한 페이지 당 5개의 데이터만 보여지도록 하고 싶다면 총 4페이지가 생성될 것이다. 그 중 2페이지에 해당하는 데이터만 보고자 한다면 `of(2, 5)` 와 같이 작성하면 된다. 조회된 전체 데이터의 개수를 토대로 한 페이지 당 데이터의 개수만 명시하면 총 페이지 수도 자동으로 내부적으로 계산되는 식이다.
@@ -237,8 +237,14 @@ public Page<SiteUsersDto> selectPages(String keyName, Pageable pageRequest) {
 예제 2-1. SiteUserService.java
 
 1. 먼저 repository로부터 `Page<Entity>` 형태의 데이터를 받아온다. 
-2. Page는 List를 상속하므로 `List<DTO>` 형태로 변환 가능하다. 이를 이용한다. 
+2. 위 코드에서처럼 stream의 `map()`, `collect()`를 이용하여 `Page<Entity>`에서 `List<DTO>`로 바꾼다.
 3. `PageImpl<DTO>` 객체를 생성한다. 생성자 메서드의 인자로는 첫 번째는 앞선 2번에서 만든 `List<DTO>` 를, 두 번째는 페이지 요청에 사용되었던 `Pageable` 객체를, 세 번째 인자로는 전체 데이터 수를 대입한다. 이 `PageImpl<DTO>` 객체를 부모 인터페이스인 `Page<DTO>` 타입 참조 변수에 담을 수 있다. 
+
+사실 Page 인터페이스 자체에도 `map()` 메서드가 있기 때문에 다음과 같이 더 간단한 방법으로 `Page<Entity>` 타입을 `Page<DTO>`로 변경할 수 있다.
+
+```
+Page<SiteUserDto> result = pageWithEntity.map(siteUsersConverter::toDto);
+```
 
 ![그림 1-1. Page 관련 인터페이스 및 클래스 간 관계 UML](/images/2024-11-12/Spring-Data-JPA-Paging-And-Sort/Spring_Data_JPA_Page_UML.png)
 
