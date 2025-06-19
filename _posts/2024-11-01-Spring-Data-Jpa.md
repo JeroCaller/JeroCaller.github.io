@@ -392,7 +392,7 @@ public class MyController {
 
 ## JPQL In Repository
 
-JPQL은 JPA Query Language의 줄임말로, 말 그대로 JPA 내에서 사용하는 쿼리문을 의미한다. SQL문과 거의 비슷하나, JPQL에서는 Entity 객체와 그 필드명을 이용하여 쿼리문을 작성한다는 것이 차이점이다. 
+JPQL은 Java Persistence Query Language의 줄임말로, 말 그대로 JPA 내에서 사용하는 쿼리문을 의미한다. SQL문과 거의 비슷하나, JPQL에서는 Entity 객체와 그 필드명을 이용하여 쿼리문을 작성한다는 것이 차이점이다. 
 
 예를 들어 엔티티 클래스명이 SiteUser라 하고, 해당 객체에 nickname과 classNumber라는 필드가 있다고 한다면
 
