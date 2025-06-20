@@ -108,7 +108,7 @@ A \ mod \ B = \ R  \ \ or \ \ A\ \% \ B = R
 한 편 모듈러 연산의 덧셈, 뺄셈, 곱셈에는 다음과 같은 성질이 있다고 한다. 
 
 \\[
-(A \pm B)\ mod \ C = (A\ mod \ C + B \ mod \ C)\ mod C
+(A \pm B)\ mod \ C = (A\ mod \ C \pm B \ mod \ C)\ mod C
 \\]
 
 \\[
