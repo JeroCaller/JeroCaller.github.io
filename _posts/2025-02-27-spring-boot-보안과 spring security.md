@@ -41,7 +41,7 @@ Spring Security는 기본적으로 Servlet Filter를 기반으로 동작한다. 
 
 이렇게 FilterChainProxy는 사실상 보안 관련 작업들의 시작점이 되기에 이러한 특징을 이용하면 다음의 작업들이 가능하다. 
 
-- 여러 개의 SecurityFilterChain들이 존재할 경우, 어떤 Security Filter Chain에 보안 작업을 위임할지 결정하는 역할을 한다. Http Request의 요청 URI를 기반으로 판단하며, 이 URI과 매핑되는 첫 번째 SecurityFilterChain만 실행된다고 한다. 아래 참고 사진 1-1처럼 만약 “/api”라는 URI 요청이 들어오면 FilterChainProxy는 이 URI와 매핑될 SecurityFilterChain을 순차적으로 검색한다. 이 URI는 “/api/**”와 “/**” 모두 해당되지만, 맨 처음의 SecurityFilterChain이 “/api/**”와 매핑되어 있기에 해당 요청은 n번째 필터 체인이 아닌 0번째 필터 체인에서 처리되며, n번째 필터 체인으로 전달되지 않는다고 한다.
+- 여러 개의 SecurityFilterChain들이 존재할 경우, 어떤 Security Filter Chain에 보안 작업을 위임할지 결정하는 역할을 한다. Http Request의 요청 URI를 기반으로 판단하며, 이 URI과 매핑되는 첫 번째 SecurityFilterChain만 실행된다고 한다. 아래 참고 사진 1-1처럼 만약 “/api”라는 URI 요청이 들어오면 FilterChainProxy는 이 URI와 매핑될 SecurityFilterChain을 순차적으로 검색한다. 이 URI는 `/api/**`와 `/**` 모두 해당되지만, 맨 처음의 SecurityFilterChain이 `/api/**`와 매핑되어 있기에 해당 요청은 n번째 필터 체인이 아닌 0번째 필터 체인에서 처리되며, n번째 필터 체인으로 전달되지 않는다고 한다.
 - Spring Security와 관련하여 어떠한 버그가 있어 트러블슈팅하고자 할 때 FilterChainProxy부터 디버그 작업을 수행하여 원인을 파악할 수 있다.
 - 모든 SecurityFilter들에 대해, 메모리 누수(Memory leak) 방지를 위한 서버 내 저장된 인증 정보(SecurityContext) 삭제 작업 또는 공격을 방지하기 위한 방화벽(firewall) 설정 등 모든 보안 필터들에 공통적으로 특정 기능들을 적용할 수 있다.
 
