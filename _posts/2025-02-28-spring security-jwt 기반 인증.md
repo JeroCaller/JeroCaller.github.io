@@ -118,9 +118,9 @@ Refresh Token이 DB에 저장되어 사용된다는 점에서 토큰 기반 인�
 
 Access Token 하나만 사용하는 경우 클라이언트와 서버 간의 통신 과정은 앞서 그림 1-1을 통해 살펴보았다. 그러면 Refresh Token까지 같이 사용하는 경우 클라이언트와 서버 간의 인증을 위한 통신 과정은 어떻게 될까? 
 
-![그림 2-1. Access Token과 Refresh Token 사용 시 인증을 위한 클리아언트 - 서버 간 통신 과정](/images/2025-02-28/spring%20security-jwt%20%EA%B8%B0%EB%B0%98%20%EC%9D%B8%EC%A6%9D/3.png)
+![그림 2-1. Access Token과 Refresh Token 사용 시 인증을 위한 클라이언트 - 서버 간 통신 과정](/images/2025-02-28/spring%20security-jwt%20%EA%B8%B0%EB%B0%98%20%EC%9D%B8%EC%A6%9D/3.png)
 
-그림 2-1. Access Token과 Refresh Token 사용 시 인증을 위한 클리아언트 - 서버 간 통신 과정
+그림 2-1. Access Token과 Refresh Token 사용 시 인증을 위한 클라이언트 - 서버 간 통신 과정
 
 위 그림에 따르면 다음의 과정을 거친다.
 
