@@ -8,7 +8,7 @@ tag: ["React", "Hook"]
 
 클래스와 함수의 차이에 대해 생각해보자. 클래스에는 수많은 필드와 메서드들이 존재할 것이다. 이러한 클래스가 인스턴스로 생성되면, 해당 인스턴스 내의 필드와 메서드 참조들은 인스턴스 자체가 소멸되기 전까지는 사라지지 않는다. 한 예로 클래스 내에 특정 private 필드에 대한 setter 메서드를 생성하면 코드 상에서 setter 메서드를 호출하면 그 호출이 끝나도 바뀐 값은 그대로 해당 필드에 유지된다. myNum이라는 필드가 있으며 이를 setter를 통해 2에서 3으로 변경하면 해당 인스턴스 자체가 소멸되지 않는 한, 다음 setter 메서드 호출문을 만나기 전까지는 계속 3이라는 값을 유지할 수 있다. 
 
-즉, 클래스는 그 클래스 내부의 필드가 인스턴스 자체가 소멸하지 않는 한 계속 유지된다. 
+즉, 클래스의 경우에는 그 클래스 내부의 필드가 인스턴스 자체가 소멸하지 않는 한 계속 유지된다. 
 
 반면 함수는 그 내부에 존재하는 지역 변수에 대해, 해당 함수가 한 번 호출되고 나면 그 함수 내부에 존재하는 지역 변수도 메모리 상에서 삭제된다. 
 
@@ -170,7 +170,7 @@ useEffect(() => {
 
 ## useRef
 
-useRef는 Vanila JS에서 `document.querySelector()` 등으로 DOM에 접근하고 조작했던 것처럼, React에서 Virtual DOM 요소에 접근할 때 사용되는 Hook이다. `useState` 처럼 호출 시 인자로 변수의 초기값을 지정할 수 있다. DOM을 구성하는 Node도 객체이기에 보통은 `const myElement = seRef(null)` 과 같이 초기화한다. 그 후, JSX 태그 중 접근하고자 하는 태그의 속성으로 `<div ref={myElement}>` 와 같이 작성하면 해당 DOM 노드를 선택할 수 있게 된다. 
+useRef는 Vanila JS에서 `document.querySelector()` 등으로 DOM에 접근하고 조작했던 것처럼, React에서 Virtual DOM 요소에 접근할 때 사용되는 Hook이다. `useState` 처럼 호출 시 인자로 변수의 초기값을 지정할 수 있다. DOM을 구성하는 Node도 객체이기에 보통은 `const myElement = useRef(null)` 과 같이 초기화한다. 그 후, JSX 태그 중 접근하고자 하는 태그의 속성으로 `<div ref={myElement}>` 와 같이 작성하면 해당 DOM 노드를 선택할 수 있게 된다. 
 
 `useRef()` 함수 호출로 얻은 변수에는 current라는 단 하나의 속성만을 가지며, `myElement.current.classList` 와 같이 current 속성으로부터 HTML 요소의 여러 속성들에 접근할 수 있다. 
 
