@@ -562,7 +562,7 @@ export default MyComp;
     <img src="/images/2024-11-15/React-Component-and-JSX-Basic/5.png" alt="image" />
 </div>
 
-- 자바스크립트의 for, map과 같은 기능을 이용하여 `<li>` , `<td>` 와 같이 반복적인 요소들을 return하여 출력하는 형태일 경우, 각각의 JSX 태그 요소에 `key` 속성에 고유한 값을 부여해줘야 한다. 다음의 예제 코드를 보겠다.
+- 자바스크립트의 for, map과 같은 기능을 이용하여 `<li>` , `<td>` 와 같이 반복적인 요소들을 return하여 출력하는 형태일 경우, 각각의 JSX 태그 요소의 `key` 속성에 고유한 값을 부여해줘야 한다. 다음의 예제 코드를 보겠다.
 
 ```jsx
 import './App.css';
