@@ -130,9 +130,9 @@ function App() {
   return (
     <div className="App">
       <Display
-       message="wow"
+       message="메시지"
        color="blue"
-       title="왜 주4일제를 망설이는가?"
+       title="속성값 전달 테스트"
       ></Display>
     </div>
   );
@@ -217,9 +217,9 @@ import Display from './components/Display';
 function App() {
 
   let data = {
-    message: "wow",
+    message: "메시지",
     color: "green",
-    title: "왜 주4일제를 망설이는가?"
+    title: "속성값 전달 테스트"
   };
 
   return (
