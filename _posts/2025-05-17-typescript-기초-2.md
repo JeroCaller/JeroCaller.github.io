@@ -104,7 +104,7 @@ let username = 'kimquel' as string;
 이러한 타입 단언을 이용하면 기존의 자바스크립트 프로젝트에서 타입스크립트로 점진적으로 마이그레이션하고자 할 때 유용할 것이다. 타입 단언을 이용하면 기존의 자바스크립트 코드를 거의 변경하지 않는 선에서 타입을 표기할 수 있기 때문이다. 
 
 ```tsx
-/ Typescript 도입 전
+// Typescript 도입 전
 /*
 const myInfo = {};
 myInfo.name = 'typeson';
