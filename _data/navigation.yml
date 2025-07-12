@@ -29,6 +29,6 @@ docs:
 # 각 카테고리 또는 태그 옆에 해당 포스트 수도 표시 가능.
 counts:
   - title: "카테고리"
-    use: false
+    use: true
   - title: "태그"
     use: false

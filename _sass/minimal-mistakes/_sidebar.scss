@@ -33,13 +33,30 @@
          viewport height - nav height - masthead x-padding
       */
       max-height: calc(100vh - #{$nav-height} - 2em);
+
+      // 왼쪽 사이드바 카테고리 목록에 의해 생성되는 스크롤바 스타일 커스텀.
+      // WebKit
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #112D4E;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #3F72AF;
+        border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: #3367d6;
+      }
     }
   }
 
   @include breakpoint($x-large) {
     // 왼쪽 사이드바 양옆 너비 조절.
     //width: calc(#{$right-sidebar-width} - 1em);  // 기본값
-    width: calc(#{$right-sidebar-width} - 2em);  // 내 설정
+    //width: calc(#{$right-sidebar-width} - 2em);  // 내 설정
+    width: calc(#{$right-sidebar-width});  // 내 설정 2
     
     // 내 설정 추가
     margin-left: -2em;

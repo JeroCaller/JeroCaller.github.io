@@ -14,6 +14,12 @@
   {% endif %}
 {% endfor %}
 
+<!-- 총 글 개수 코드 추가 -->
+{% if site.posts.size %}
+<p><i class="fas fa-fw fa-pencil-alt" aria-hidden="true"></i> 총 포스트 수: {{ site.posts.size }}개</p>
+{% endif %}
+<!-- 추가 끝 -->
+
 <nav class="nav__list">
   {% if navigation[0].use %}
   <input id="ac-toc" name="accordion-toc" type="checkbox" />

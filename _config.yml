@@ -111,9 +111,9 @@ author:
   location         : "South Korea, 한국"
   email            :
   links:
-    - label: "Email"
+    - label: "j69m17@gmail.com"  # default) label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "mailto:j69m17@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
