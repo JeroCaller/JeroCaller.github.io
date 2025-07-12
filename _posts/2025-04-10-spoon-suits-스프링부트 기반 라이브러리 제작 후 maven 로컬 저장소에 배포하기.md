@@ -30,7 +30,6 @@ implementation: 'com.jerocaller.libs:my-library:1.0.1'
 
 - github repository: [https://github.com/JeroCaller/Spoon-Suits](https://github.com/JeroCaller/Spoon-Suits)
 - Libraray name : Spoon Suits
-- OS : Window 10
 - IDE: Intellij
 - Java version: JDK 21
 - build tool : Gradle
