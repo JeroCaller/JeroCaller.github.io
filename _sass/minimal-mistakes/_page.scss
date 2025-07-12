@@ -579,3 +579,45 @@ body {
     }
   }
 }
+
+/*
+페이지 맨 위로 및 맨 아래로 버튼 스타일 커스텀
+
+_layouts/single.html 참고
+*/
+.move-to {
+  --move-to-icon-width: 2em;
+  --move-to-icon-height: 2em;
+
+  width: var(--move-to-icon-width);
+  height: calc(2 * var(--move-to-icon-height));
+  text-align: center;
+  list-style: none;
+  padding-left: 0em;
+  z-index: 0;
+
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.move-to .icon {
+  border: 1px solid black;
+  width: var(--move-to-icon-height);
+  height: var(--move-to-icon-width);
+  background-color: lightgrey;
+  opacity: 0.3;
+}
+
+.move-to .icon:hover {
+  opacity: 1;
+}
+
+.move-to a {
+  text-decoration: none;
+  color: black;
+}

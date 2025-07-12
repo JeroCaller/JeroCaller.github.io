@@ -65,6 +65,9 @@ layout: default
         {% endif %}
         <!-- 내 설정 끝 -->
 
+        <!-- 페이지 맨 아래로 버튼을 위한 요소 -->
+        <div id="page-bottom"></div>
+
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
@@ -111,3 +114,19 @@ layout: default
     </div>
   {% endif %}
 </div>
+
+<!-- 페이지 맨 위로 및 맨 아래로 버튼 추가 -->
+<!-- 
+  다음 페이지들 참고.
+  _sass/minimal-mistakes/_page.scss
+  _includes/head/custom.html
+-->
+<ul class="move-to">
+  <li class="icon up" title="맨 위로">
+    <a href="#page-title" class="material-symbols-outlined">arrow_upward</a>
+  </li>
+  <li class="icon down" title="맨 아래로">
+    <a href="#page-bottom" class="material-symbols-outlined">arrow_downward</a>
+  </li>
+</ul>
+<!-- 페이지 맨 위로 및 맨 아래로 버튼 추가 끝 -->
