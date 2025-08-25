@@ -206,16 +206,18 @@ SecondJob에 대해서는 해당 작업이 스케줄링에 의해 현재 몇 번
   details {
     background-color: #434555;
   }
+
   details > summary {
     cursor: pointer;
   }
+
   details a {
     text-decoration: none;
     margin: 0 0.5em;
   }
 </style>
 
-<details>
+<details id="참고-1">
 <summary>
     <strong>
         <i>참고) cron 표현식을 적용한 Trigger 인스턴스 생성하기</i>
