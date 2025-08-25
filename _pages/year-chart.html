@@ -1,0 +1,137 @@
+---
+title: "Year Chart"
+layout: single
+permalink: /year-chart/
+author_profile: true
+sidebar_main: true
+---
+<style>
+  #calendar-chart {
+    width: 120%;
+  }
+
+  .tooltip {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    font-size: 1.3em;
+    width: 8em;
+  }
+</style>
+<!-- 
+  https://developers.google.com/chart/interactive/docs/quick_start?hl=ko 참고함.
+-->
+<div id="calendar-chart"></div>
+
+<script type="text/javascript">
+
+  /**
+   * 연도 개수를 가져와 전체 캘린더 높이를 계산한다. 
+   * 
+   * @param {number} yearCount
+   */
+  const getCalculatedHeightForAllChart = (yearCount) => {
+
+    // px 단위
+    const TITLE_HEIGHT = 80;
+    const HEIGHT_PER_YEAR = 180;
+
+    return (yearCount * HEIGHT_PER_YEAR) + TITLE_HEIGHT;
+  };
+
+  google.charts.load("current", {packages:["calendar"], language: 'ko'});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    let dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({type: 'date', id: 'date'});
+    dataTable.addColumn({type: 'number', id: 'commits'});
+
+    // 커스텀 툴팁 설정을 위한 컬럼 추가.
+    dataTable.addColumn({type: 'string', role: 'tooltip'});
+
+    // 등록된 모든 포스트들의 날짜를 'yyyy-mm-dd' 형식의 문자열 형태로 담는다.
+    const postDateStrings = [
+      {% for post in site.posts %}
+        "{{ post.date | date: '%Y-%m-%d' }}",
+      {% endfor %}
+    ];
+
+    const postDateAndCount = {};  // 'yyyy-mm-dd': count
+    const uniqueYears = new Set(); // 고유한 연도 개수 계산용.
+
+    postDateStrings.forEach(dateString => {
+      if (!(dateString in postDateAndCount)) {
+        postDateAndCount[dateString] = 1;
+      } else {
+        postDateAndCount[dateString] = ++postDateAndCount[dateString];
+      }
+
+      uniqueYears.add(dateString.split("-")[0]);
+    });
+
+    const chartData = [];
+    
+    for (const dateString in postDateAndCount) {
+      const dateObj = new Date(dateString);
+      const dateCounts = postDateAndCount[dateString];
+
+      // 툴팁에 표시할 컨텐츠
+      let tooltipContent = `<div class="tooltip">
+          <span>${dateString}</span><br/>
+          ${(dateCounts > 0) ? `<span>포스트 수: ${dateCounts}</span>` : ''}
+        </div>`;
+      
+      chartData.push([dateObj, dateCounts, tooltipContent]);
+    }
+
+    dataTable.addRows(chartData);
+
+    const chartContainer = document.getElementById("calendar-chart");
+    let totalChartHeight = getCalculatedHeightForAllChart(uniqueYears.size);
+    chartContainer.style.height = `${totalChartHeight}px`;
+    console.log(`연도 개수: ${uniqueYears.size}`);
+    console.log(`계산된 차트 높이(px): ${totalChartHeight}`);
+
+    const chart = new google.visualization.Calendar(chartContainer);
+    const options = {
+      title: "연도별 블로그 포스트 업로드 수",
+      /*
+      noDataPattern: {
+        backgroundColor: 'F6F1E9',
+        color: 'D3DAD9',
+      },
+      */
+      calendar: {
+        daysOfWeek: "일월화수목금토",
+        cellSize: 16,
+      },
+      tooltip: {
+        trigger: 'focus',  // 마우스 커서 올렸을 때 표시 (기본값)
+      },
+      colorAxis: {
+        // 커밋 수가 1일 때 하얀색으로 보여 구분이 안되므로, 
+        // 최소 값을 더 낮게 설정하여 커밋 수가 1일 때에도 눈에 잘 띄도록 한다.
+        minValue: 0,
+
+        // 왼쪽부터 오른쪽으로 커밋 수가 많을 수록 진한색으로 표시되도록 함.
+        //colors: ['#E0F2F7', '#BBDEFB', '#64B5F6', '#2196F3', '#1565C0', '#0D47A1'],
+        colors: [
+          '#B0E0E6', 
+          '#87CEFA', 
+          '#00BFFF', 
+          '#0073CF',
+          '#1E90FF',
+          '#0072BB',
+          '#0F52BA',
+          '#1C39BB',
+          '#091F92',
+          '#192F60',
+        ],
+      },
+    };
+
+    chart.draw(dataTable, options);
+  }
+</script>

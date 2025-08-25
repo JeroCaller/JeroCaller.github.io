@@ -8,6 +8,8 @@ main:
     url: /search/
   - title: "By Year"
     url: /year-archive-grid/
+  - title: "Year Chart"
+    url: /year-chart/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
