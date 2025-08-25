@@ -209,10 +209,19 @@ SecondJob에 대해서는 해당 작업이 스케줄링에 의해 현재 몇 번
   details > summary {
     cursor: pointer;
   }
+  details a {
+    text-decoration: none;
+    margin: 0 0.5em;
+  }
 </style>
 
 <details>
-<summary><strong><i>참고) cron 표현식을 적용한 Trigger 인스턴스 생성하기</i></strong></summary>
+<summary>
+    <strong>
+        <i>참고) cron 표현식을 적용한 Trigger 인스턴스 생성하기</i>
+    </strong>
+    <a href="#참고-1" class="material-symbols-outlined">link</a>
+</summary>
 <div markdown="1">
 참고로 cron은 Unix 계열 운영체제에서의 시간 기반 잡 스케줄러 프로그램으로, 주로 여기서 사용되는 시간 표현식을 언급하는 의미로 쓰인다. [Github Docs](https://docs.github.com/ko/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)에 따르면 cron 표현식은 다음과 같이 구성되어 있다. 
     
