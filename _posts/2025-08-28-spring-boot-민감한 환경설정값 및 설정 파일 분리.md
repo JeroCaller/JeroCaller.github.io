@@ -326,6 +326,11 @@ Failed to bind properties under 'jwt' to com.jerocaller.libs.spoonsuits.web.jwt.
 코드 3-3. 생성자 바인딩 방식 사용 시 에러.
     
 그래서 이에 대해 조사하다가, 환경 설정 값과의 바인딩 목적으로 사용할 생성자 메서드에 `@ConstructorBinding` 어노테이션을 적용하면 된다는 글을 보고, `@RequiredArgsConstructor` 대신 직접 생성자 메서드를 정의하고 해당 어노테이션을 적용해보기도 했었다. 그럼에도 위와 똑같은 에러가 발생하며 바인딩되지 않았었다. 그 후에도 해결책을 찾지 못해 결국에는 다시 `@Setter` 방식으로 돌아올 수 밖에 없었다. 
+
+2025-08-29 추가 - 최근 이 문제를 해결하여 생성자 바인딩 방식으로 전환할 수 있었다. 이에 대해선 다음을 참고. 
+
+[[Troubleshooting] application.yml 설정 값 및 pojo 생성자 바인딩 문제](https://github.com/JeroCaller/Spoon-Suits/issues/76)
+
 </div>
 </details>
 

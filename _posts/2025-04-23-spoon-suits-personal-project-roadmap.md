@@ -27,9 +27,12 @@ tag: ["Personal Project", "Spoon Suits", "Roadmap"]
 
 Spoon Suits 라이브러리 개발 과정에서 마주친 문제들과 이를 해결해나가는 과정을 기록한 글들입니다. Github Issues를 이용하여 기록하였습니다. 
 
+[전체 Troubleshooting 목록](https://github.com/JeroCaller/Spoon-Suits/issues?q=is%3Aissue%20state%3Aclosed%20label%3Atroubleshooting)
+
 [1] [[Troubleshooting] 테스트 코드에서 ObjectMapper 의존성 주입 실패](https://github.com/JeroCaller/Spoon-Suits/issues/16)
 
 [2] [[Troubleshooting] 마지막 커밋 정정 후 원격 저장소에 다시 push할 때 push가 안되는 이슈 ](https://github.com/JeroCaller/Spoon-Suits/issues/27)
 
 [3] [[Troubleshooting] [Git Push] refusing to allow an OAuth App to create or update workflow ... without workflow scope](https://github.com/JeroCaller/Spoon-Suits/issues/54)
 
+[4] [[Troubleshooting] application.yml 설정 값 및 pojo 생성자 바인딩 문제](https://github.com/JeroCaller/Spoon-Suits/issues/76)
