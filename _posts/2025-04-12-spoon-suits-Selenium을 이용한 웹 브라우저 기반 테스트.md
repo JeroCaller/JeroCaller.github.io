@@ -53,14 +53,27 @@ class CookieControllerOnBrowserTest {
     @LocalServerPort
     private int port;  // #3
     
+    private String requestDomainUrl;
+    private String requestMockCookiesCreationUrl;
+    private String requestDeleteCookiesUrl;
+    
     // 생략...
     
     @BeforeEach
     void setUp() {
-        webDriver = new ChromeDriver();  // #4
-
-        log.info("테스트용 다중 쿠키 생성 URL: {}", requestMockCookiesCreationUrl);
-        log.info("쿠키 삭제 URL: {}", requestDeleteCookiesUrl);
+        webDriver = new ChromeDriver(SeleniumOptionConfigUtils.getChromeOption()); // #4
+        requestDomainUrl = String.format("http://127.0.0.1:%d/test/cookie", port);  // #4-1
+        requestMockCookiesCreationUrl = UriComponentsBuilder
+            .fromUriString(requestDomainUrl)
+            .path("/many")
+            .build()
+            .toUriString();
+        requestDeleteCookiesUrl = UriComponentsBuilder
+            .fromUriString(requestDomainUrl)
+            .path("/selenium/delete")
+            .build()
+            .toUriString();
+        // 생략...
     }
 
     @AfterEach
@@ -130,20 +143,116 @@ class CookieControllerOnBrowserTest {
 
 코드 2-1. CookieControllerOnBrowserTest.java
 
-먼저 Selenium을 이용하여 웹 브라우저 기반 테스트를 하기 위해 #1과 같이 webDriver 필드를 선언하였다. 필자는 크롬 브라우저에서 테스트하길 원했기에 #4와 같이 `ChromeDriver` 객체를 생성하여 사용하도록 하였다. 정확한 테스트를 위해 `@BeforeEach`, `@AfterEach` 를 이용하여 각 테스트 케이스를 실행할 때마다 크롬 드라이버 객체를 생성, 소멸시키도록 하였다. webDriver 객체를 소멸시켜(쉽게 말하면 화면에 뜬 브라우저를 끄는 것) 사용을 종료하는 코드는 `webDriver.quit()` 을 이용하면 된다. 
+먼저 Selenium을 이용하여 웹 브라우저 기반 테스트를 하기 위해 #2과 같이 webDriver 필드를 선언하였다. 필자는 크롬 브라우저에서 테스트하길 원했기에 #4와 같이 `ChromeDriver` 객체를 생성하여 사용하도록 하였다. 정확한 테스트를 위해 `@BeforeEach`, `@AfterEach` 를 이용하여 각 테스트 케이스를 실행할 때마다 크롬 드라이버 객체를 생성, 소멸시키도록 하였다. webDriver 객체를 소멸시켜(쉽게 말하면 화면에 뜬 브라우저를 끄는 것) 사용을 종료하는 코드는 `webDriver.quit()` 을 이용하면 된다. 
 
 #6과 같이 `get(url)` 메서드에 띄우고자 하는 사이트의 URL을 인자로 대입하면 해당 웹 사이트를 띄울 수 있다. 사실 필자의 경우 테스트용 웹 앱을 REST API로 작성했기에 API를 호출하는 용도로 사용하였다. 메서드 이름에서도 볼 수 있듯, GET 방식으로만 HTTP 요청을 할 수 있다. 
 
 #7, #8와 같은 코드로 현재 테스트용 웹 브라우저에 저장된 특정 쿠키만을 가져오거나 아니면 모든 쿠키를 가져올 수 있다. 프로그래밍적으로 가져온 쿠키들을 통해 테스트를 할 수 있는 것이다. 
 
-한 편, Selenium을 제대로 이용하려면 Selenium을 통해 띄운 웹 브라우저에서 현재 호스팅되고 있는 사이트로 이동하도록 해야 한다. 필자의 경우 필자가 만든 라이브러리를 이용하는 메인 패키지 내 웹 애플리케이션을 `localhost:8080` 주소로 로컬로 호스팅한 후, Selenium에서 이 주소로 접속하여 테스트를 진행해야 했다. 메인 쪽에서 8080 포트 번호로 띄우기에 코드 2-1과 같은 테스트 패키지 쪽에서는 다른 포트 번호를 이용하여 테스트를 진행해야 했다. 이로 인해 포트 번호 중복을 피하기 위해 #1, #3과 같이 설정하였다. 실제로 테스트를 진행하려면 메인 패키지 쪽에 있는 `~application.java` 를 실행한 뒤에 위 코드를 실행해야 했다. 
+한 편, Selenium을 제대로 이용하려면 Selenium을 통해 띄운 웹 브라우저에서 현재 호스팅되고 있는 사이트로 이동하도록 해야 한다. 즉 여기서는 REST API를 제공하는 서버가 필요하다는 것인데, 여기서는 `@SpringBootTest` 를 통해 `src/main/java` 에 작성한 Spring bean들을 테스트용 Spring Context로 가져와 테스트 환경에서 구동시킬 것이다. 문제는 테스트를 위한 REST API 도메인의 포트 번호를 현재 코드 상에서는 알 수 없다는 사실이다. `src/main/java` 내 `~Application.java` 를 실행했을 때는 `application.yml`의 `server.port` 에 따로 포트 번호를 명시하지 않는 한 기본적으로 8080 포트번호로 실행되지만 테스트 환경에서는 랜덤으로 포트 번호가 부여된다. 이로 인해 테스트 코드 내에서 8080 포트번호로 하드코딩한 상태에서 테스트를 진행하면 네트워크 오류가 뜬다. 따라서 테스트 코드에서 HTTP 요청할 도메인 주소의 포트번호를 8080처럼 하드코딩해서는 안된다. 테스트 환경에서 실행할 웹 앱의 포트 번호를 알기 위해 위 코드의 #1에서처럼 `webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT` 속성값을 넣는다. 그 후 #3과 같이 `@LocalServerPort` 어노테이션을 통해 랜덤으로 부여된 포트 번호를 필드에 주입받는다. 이 필드 값을 토대로 #4-1과 같이 HTTP 요청할 도메인의 포트 번호를 동적으로 구성해야 한다. 
 
-테스트 코드를 실행시키면 각 테스트 케이스마다 아주 잠깐 화면에서 크롬 웹 브라우저가 띄워졌다가 사라진다. 테스트가 성공적일 경우 이렇게 순식간에 화면에서 사라지고, 테스트가 오래 걸리거나 메인 쪽 웹 앱을 띄우지 않았을 경우에는 한동안 Selenium에 의해 화면에 띄워진 크롬 브라우저가 계속 화면상에 존재하게 된다. 
+한 편, 위 코드의 #4 코드를 보면 `ChromeDriver` 객체 생성자에 무언가를 주입하고 있는데, 해당 코드는 다음과 같다. 
 
-어찌되었건, 이러한 Selenium 덕분에 실제 웹 브라우저 환경에서 쿠키 기능에 대한 테스트를 문제없이 진행할 수 있었다. 
+```java
+package com.jerocaller.test.spoonsuits_local_test.spoonsuits_local_test.config;
 
-> 이제와서 보니 한 가지 의문이 드는 건, Selenium을 이용한 테스트를 진행할 때 어차피 메인 패키지에 있는 웹 앱을 실행하기 위해 포트 번호 8080으로 로컬 서버로 띄워 진행할 것인데, 테스트 쪽에서도 굳이 `@SpringBootTest` 등을 이용하여 테스트용 서버를 생성 및 구동시켜야 하는지이다. 테스트를 위해 따로 `localhost:3000` 의 리액트 등을 이용해 구축한 프론트엔드 사이트가 필요한 것도 아니고, 그저 브라우저만 띄우면 되는 것이기 때문이다. 굳이 메인 쪽 로컬 서버와 테스트 쪽 로컬 서버 이렇게 서버를 2개나 띄워야 되나 싶은 것이다. 이에 대해선 나중에 기회가 될 때 다시 한 번 살펴봐야겠다.
-> 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class SeleniumOptionConfigUtils {
+
+    /**
+     * <p>
+     *     Selenium을 이용한 모든 테스트에 적용할 Chrome option.
+     * </p>
+     * <p>
+     *     여기서는 GUI를 지원하지 않는 리눅스와 같은 OS 환경에서도 Selenium 테스트가 진행될 수 있도록
+     *     브라우저 GUI 창 띄우기를 방지하도록 설정함.
+     * </p>
+     *
+     * @return
+     */
+    public static ChromeOptions getChromeOption() {
+        ChromeOptions chromeOptions = new ChromeOptions();
+
+        // 헤드리스 모드 활성화. 셀레니움 테스트 실행 시 브라우저 화면을 화면에 띄우지 않고,
+        // 메모리 상에서만 실행하는 방식. 특히 GUI를 지원하지 않는 리눅스 등의 OS 환경에서 사용.
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--no-sandbox");
+
+        // 리눅스와 같은 OS 환경에서 공유 메모리(`/dev/shm`) 공간 사용 시
+        // 해당 공간이 매우 적게 할당되어 Chrome이 차지하는 메모리 용량이 이를 넘길 경우 문제가 발생할 수 있음.
+        // 따라서 해당 공유 메모리 사용을 하지 않고 일반 파일 시스템(`/tmp`)을 사용하도록 함.
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+
+        return chromeOptions;
+    }
+}
+
+```
+
+코드 2-2.
+
+`ChromeDriver` 객체에는 `ChromeOptions` 객체를 주입하여 크롬 드라이버에 대한 옵션을 설정해줄 수 있다. 이 역할을 위 코드 2-2에서 수행하고 있다. 위에서는 3가지의 옵션들이 사용되었는데 각각에 대한 설명은 다음과 같다.
+
+- `--headless` : 보통 Selenium 실행 시 화면에 웹 브라우저 창이 떴다가 작업이 끝나면 사라진다. 대신 Selenium을 실행시켜도 웹 브라우저 창이 뜨지 않도록 설정할 수 있는데, 이를 헤드리스 모드라 한다. 이는 터미널 창에서 `./gradlew` 를 실행하거나 리눅스와 같이 GUI를 지원하지 않는 OS에서 Selenium을 실행해야 할 때(Github Actions의 CI/CD라든가) 헤드리스 모드를 설정하지 않으면 자칫 에러가 날 수 있다. 따라서 이를 방지하여 selenium을 실행하더라도 웹 브라우저 창이 뜨지 않고 메모리 상에서만 실행되도록 하는 옵션이다.
+- `--no-sandbox` : 샌드박스 기능을 비활성화하는 옵션. 샌드박스는 외부 프로그램으로부터 격리된 공간을 형성하는 보안적 기능이다. Selenium에서는 각 웹 페이지 간 격리를 통해 보안성을 높인다. 그러나 이러한 기능은 오히려 의도한 테스트 코드가 작동하지 않고 예기치 않은 에러를 발생시킬 수 있다. 따라서 여기서는 샌드박스 기능을 비활성화한다.
+- `--disable-dev-shm-usage` : 크롬에서는 `/dev/shm` 이라는 공유 메모리 공간을 사용한다. 그러나 해당 공간은 매우 작아 실행 중 메모리 부족 현상이 나타날 수 있다. 따라서 여기서는 해당 공간 대신 일반적인 파일 시스템을 사용하여 메모리 부족 현상을 방지한다.
+
+이 옵션 모두 나중에 GUI를 지원하지 않는 리눅스 또는 CI/CD 환경에서도 테스트 코드가 원활하게 작동하기 위한 설정이다. 
+
+이제 테스트 코드를 실행하면 selenium을 활용한 쿠키 테스트가 문제없이 진행될 것이다. 
+
+<style>
+  details {
+    background-color: #434555;
+    margin-bottom: 1em;
+  }
+  details > summary {
+    cursor: pointer;
+    margin: 0.5em;
+  }
+  details a {
+    text-decoration: none;
+    margin: 0 0.5em;
+  }
+  details > div {
+    padding: 0.5em;
+  }
+</style>
+<details id="참고-1">
+<summary>
+    <strong>
+        <i>참고) Selenium CDP version 경고 해결 방법</i>
+    </strong>
+    <a href="#참고-1" class="material-symbols-outlined">link</a>
+</summary>
+<div markdown="1">
+
+```java
+Unable to find CDP implementation matching 139
+Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+```
+코드 2-3. 콘솔창 결과
+    
+필자가 Selenium을 이용한 테스트를 진행했을 때 콘솔창에서 위와 같은 경고가 떴다. 위 경고는 현재 프로젝트에서 사용하는 Selenium 라이브러리 버전과, 이를 실행시키는 디바이스에 설치된 Chromium 기반 크롬 브라우저의 버전이 서로 호환되지 않아서 발생하는 경고이다. Selenium에서는 CDP(Chrome Devtools Protocol)이라는 특정 프로토콜을 이용하여 크롬 브라우저와 통신하고 제어한다고 한다. 이 때 브라우저와의 원활한 통신을 위해 브라우저 버전과 호환되는 devtools 모듈을 사용하는데, 이 devtools 버전과 크롬 브라우저 간 호환이 되지 않아 위와 같은 경고가 뜬 것이다. 
+    
+이를 해결하려면 build.gradle 파일에 다음과 같은 의존성을 추가한다. 
+    
+```java
+dependencies {
+    // 시스템에 설정된 크롬 브라우저 버전과 셀레니움 라이브러리 버전 간 호환을 위함.
+    // 'org.seleniumhq.selenium:selenium-devtools-v<BROWSER_MAJOR_VERSION>:<SELENIUM_VERSION>' 형식
+    testImplementation 'org.seleniumhq.selenium:selenium-devtools-v139:4.35.0'
+}
+```
+코드 2-4. build.gradle
+    
+`<BROWSER_MAJOR_VERSION>` 에는 경고 메시지로 뜬 `Unable to find version of CDP to use for 139.0.7258.155.` 에서 맨 앞 숫자인 `139` 와 같은 숫자를 대입하면 된다. 그리고 그 뒤에는 해당 브라우저 버전에 맞는 Selenium 버전을 명시하면 된다. 이는 [maven repository](https://mvnrepository.com/search?q=selenium+devtools) 사이트에서 `selenium devtools` 라 검색하면 나오는 무수히 많은 브라우저 버전 중에서 찾으면 나오는 내용이니 참고. 
+</div>
+</details>
 
 # 개인적으로 느낀 Selenium 사용의 어려운 점
 
@@ -332,3 +441,19 @@ References
 [Playwright vs Selenium in 2025: Performance & Features Compared](https://research.aimultiple.com/playwright-vs-selenium/)
 
 [9] [https://github.com/SeleniumHQ/selenium/issues/3845](https://github.com/SeleniumHQ/selenium/issues/3845)
+
+[10] seleinum headless 및 chrome options
+
+[셀레니움 최적화를 위한 chrome_options](https://coding-shop.tistory.com/297)
+
+[11] seleinum headless 및 chrome options
+
+[Selenium을 위한 Chrome 브라우저 설정 옵션 완벽 가이드](https://with-kwang.tistory.com/82)
+
+[12] seleinum headless 및 chrome options
+
+[나만의 웹 크롤러 만들기(7): 창없는 크롬으로 크롤링하기 - Beomi's Tech blog](https://beomi.github.io/2017/09/28/HowToMakeWebCrawler-Headless-Chrome/)
+
+[13] 샌드박스
+
+[샌드박스 (컴퓨터 보안)](https://ko.wikipedia.org/wiki/%EC%83%8C%EB%93%9C%EB%B0%95%EC%8A%A4_(%EC%BB%B4%ED%93%A8%ED%84%B0_%EB%B3%B4%EC%95%88))
