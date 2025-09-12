@@ -15,13 +15,13 @@ tag: ["Personal Project", "Spoon Suits", "Roadmap"]
 
 # 블로그 글
 
-[1] [[Spoon Suits] 스프링부트 기반 라이브러리 제작 후 로컬 maven 저장소에 배포하기](https://jerocaller.github.io/personal%20project/spoon-suits-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EA%B8%B0%EB%B0%98-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%9C%EC%9E%91-%ED%9B%84-maven-%EB%A1%9C%EC%BB%AC-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/)
+[1] [[Spoon Suits] 스프링부트 기반 라이브러리 제작 후 로컬 maven 저장소에 배포하기](/personal%20project/spoon-suits-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EA%B8%B0%EB%B0%98-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%A0%9C%EC%9E%91-%ED%9B%84-maven-%EB%A1%9C%EC%BB%AC-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/)
 
-[2] [[Spoon Suits] Selenium을 이용한 웹 브라우저 기반 테스트](https://jerocaller.github.io/personal%20project/spoon-suits-Selenium%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9B%B9-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EA%B8%B0%EB%B0%98-%ED%85%8C%EC%8A%A4%ED%8A%B8/)
+[2] [[Spoon Suits] Selenium을 이용한 웹 브라우저 기반 테스트](/personal%20project/spoon-suits-Selenium%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9B%B9-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EA%B8%B0%EB%B0%98-%ED%85%8C%EC%8A%A4%ED%8A%B8/)
 
-[3] [[Spoon Suits] Jitpack을 이용한 라이브러리 온라인 배포](https://jerocaller.github.io/personal%20project/spoon-suits-jitpack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%B0%B0%ED%8F%AC/)
+[3] [[Spoon Suits] Jitpack을 이용한 라이브러리 온라인 배포](/personal%20project/spoon-suits-jitpack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%B0%B0%ED%8F%AC/)
 
-[4] [[Spoon Suits] Github Actions를 이용한 Github tag & release 자동화](https://jerocaller.github.io/personal%20project/spoon-suits-Github-Actions%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Github-tag-&-release-%EC%9E%90%EB%8F%99%ED%99%94/)
+[4] [[Spoon Suits] Github Actions를 이용한 Github tag & release 자동화](/personal%20project/spoon-suits-Github-Actions%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Github-tag-&-release-%EC%9E%90%EB%8F%99%ED%99%94/)
 
 # TroubleShooting
 
