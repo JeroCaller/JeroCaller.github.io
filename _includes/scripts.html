@@ -26,3 +26,23 @@
     <script src="{{ script | relative_url }}"></script>
   {% endfor %}
 {% endif %}
+
+<!-- littlefoot.js 적용. 각주 표현 라이브러리 -->
+<link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css" />
+<script src="https://unpkg.com/littlefoot/dist/littlefoot.js" type="application/javascript"></script>
+<script type="application/javascript">
+  // 기본 설정으로 실행
+  littlefoot.default({
+  buttonTemplate: `
+    <button
+      aria-label="Footnote <% number %>"
+      class="littlefoot__button"
+      id="<% reference %>"
+    >
+      <% number %>
+    </button>
+  `,
+  activateOnHover: true,
+  dismissOnUnhover: true
+})
+</script>
