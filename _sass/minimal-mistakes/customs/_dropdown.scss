@@ -1,0 +1,35 @@
+/* 
+dropdown (details, summary) 스타일 설정.
+
+마크다운 파일 내에서의 사용 방법
+
+```
+<details id="ref-1">
+<summary>
+    <strong>
+        <i>참고 - 요약 제목</i>
+    </strong>
+    <a href="#ref-1" class="material-symbols-outlined">link</a>
+</summary>
+<div markdown="1">
+여기에 마크다운 문법으로 내용 작성...
+</div>
+</details>
+```
+*/
+
+details {
+  background-color: #434555;
+  margin-bottom: 1em;
+}
+details > summary {
+  cursor: pointer;
+  margin: 0.5em;
+}
+details a {
+  text-decoration: none;
+  margin: 0 0.5em;
+}
+details > div {
+  padding: 0.5em;
+}

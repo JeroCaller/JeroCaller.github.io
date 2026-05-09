@@ -25,23 +25,6 @@ tag: ["Desktop", "Desktop app", "Electron", "Web", "Node.js", "Framework", "Elec
 
 electron-vite는 기존 Vite만의 장점과 더불어 더 좋은 개발자 경험과 보안을 제공한다는 점을 볼 수 있다. 이제 이 electron-vite를 이용하여 데스크톱 앱 제작을 위한 프로젝트 생성 및 여러 참고사항들, 그리고 패키징 방법에 대해서 살펴보도록 하겠다.
 
-<style>
-  details {
-    background-color: #434555;
-    margin-bottom: 1em;
-  }
-  details > summary {
-    cursor: pointer;
-    margin: 0.5em;
-  }
-  details a {
-    text-decoration: none;
-    margin: 0 0.5em;
-  }
-  details > div {
-    padding: 0.5em;
-  }
-</style>
 <details id="ref-1">
 <summary>
     <strong>

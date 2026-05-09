@@ -506,23 +506,6 @@ public class UserController {
 
 즉, 앞서 작성한 자바 예시 코드는 xml 파일 내에서 `<example>` 태그 내에 작성하면 되고, 앞선 Rule Designer를 이용하여 추출한 Xpath query문은 `<property name="xpath">` 태그 내의 `<value>` 태그 내에 삽입하면 된다. 
 
-<style>
-  details {
-    background-color: #434555;
-    margin-bottom: 1em;
-  }
-  details > summary {
-    cursor: pointer;
-    margin: 0.5em;
-  }
-  details a {
-    text-decoration: none;
-    margin: 0 0.5em;
-  }
-  details > div {
-    padding: 0.5em;
-  }
-</style>
 <details id="ref-1">
 <summary>
     <strong>
