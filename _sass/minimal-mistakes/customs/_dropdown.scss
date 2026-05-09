@@ -21,6 +21,15 @@ dropdown (details, summary) 스타일 설정.
 details {
   background-color: #434555;
   margin-bottom: 1em;
+
+  /* 테두리를 배경보다 밝은 회색으로 설정하여 경계 명확화 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* 다크 배경에서 묵직하게 깔리는 그림자 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+  /* 배경색과 위치 이동을 부드럽게 */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 details > summary {
   cursor: pointer;
@@ -32,4 +41,14 @@ details a {
 }
 details > div {
   padding: 0.5em;
+}
+
+/* 마우스를 올렸을 때 더 밝아지며 떠오르는 효과 */
+details:hover {
+  background-color: #323945; 
+  transform: translateY(-4px);
+
+  /* 더 멀리 퍼지는 그림자로 고도감 표현 */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 
+              0 0 0 1px rgba(255, 255, 255, 0.15); /* 테두리 광채도 살짝 강화 */
 }
