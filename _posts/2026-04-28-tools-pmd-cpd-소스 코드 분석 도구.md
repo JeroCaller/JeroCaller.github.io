@@ -146,15 +146,6 @@ PMD에는 여러 내장 규칙들을 제공하고 있어 프로젝트에 이 규
 
 - [https://docs.pmd-code.org/latest/pmd_rules_java.html](https://docs.pmd-code.org/latest/pmd_rules_java.html)
 
-<style>
-  .single-image {
-    text-align: center;
-    margin: 1em;
-  }
-  .single-image > p {
-    margin-top: 0.5em;
-  }
-</style>
 <div class="single-image">
   <img width="60%" src="/images/2026-04-28/tools-pmd-cpd-소스%20코드%20분석%20도구/9.png" alt="image">
   <p>사진 4-1.  PMD 내장 규칙의 한 예. 출처: <a href="https://docs.pmd-code.org/latest/pmd_rules_java_codestyle.html#longvariable" target="_black">https://docs.pmd-code.org/latest/pmd_rules_java_codestyle.html#longvariable</a></p>

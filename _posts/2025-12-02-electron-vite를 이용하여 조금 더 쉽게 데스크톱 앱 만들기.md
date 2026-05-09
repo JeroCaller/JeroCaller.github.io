@@ -72,15 +72,6 @@ npm create @quick-start/electron@latest
 
 React, Vue 등의 여러 프레임워크 중 하나를 택한다. 
 
-<style>
-  .single-image {
-    text-align: center;
-    margin: 1em;
-  }
-  .single-image > p {
-    margin-top: 0.5em;
-  }
-</style>
 <div class="single-image">
   <img width="60%" src="/images/2025-12-02/electron-vite%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC%20%EC%A1%B0%EA%B8%88%20%EB%8D%94%20%EC%89%BD%EA%B2%8C%20%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%86%B1%20%EC%95%B1%20%EB%A7%8C%EB%93%A4%EA%B8%B0/4.png" alt="image">
   <p>사진 1-4.</p>

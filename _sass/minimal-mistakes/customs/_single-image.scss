@@ -1,0 +1,20 @@
+/*
+한 개의 이미지에 대한 이미지 및 이미지 설명 글 중앙 정렬.
+
+마크다운에서의 사용법
+
+```
+<div class="single-image">
+  <img width="20%" src="(이미지 경로)" alt="image">
+  <p>그림 1-1. 가장 간단하고 떠올리기 쉬운 단일 DB 서버 구조</p>
+</div>
+```
+*/
+
+.single-image {
+  text-align: center;
+  margin: 1em;
+}
+.single-image > p {
+  margin-top: 0.5em;
+}
