@@ -1,7 +1,9 @@
 ---
 title: "[Infra] DB Clustering, fail-over, load-balancing (ft. Quartz)"
-category: "Infra&Cloud"
+category: "Infra & Cloud"
 tag: ["Infra", "Clustering", "Cluster", "failover", "failback", "load balance", "load balancing", "Quartz", "Scheduling", "Schedule", "Server", "DB", "Database"]
+redirect_from:
+  - /infra&cloud/infra-db-clustering,-failover,-load-balancing-ft-quartz/
 ---
 
 <style>
