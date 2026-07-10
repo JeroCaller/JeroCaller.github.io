@@ -1,7 +1,7 @@
 ---
 title: "[OS] 리눅스 개요"
 category: "Infra & Cloud"
-tag: ["OS", "Linux", "Operation System", "Server", "Ubuntu", "Debian", "RedHat", "Fedora", "CentOS", Windows", "FHS", "Directory"]
+tag: ["OS", "Linux", "Operation System", "Server", "Ubuntu", "Debian", "RedHat", "Fedora", "CentOS", "Windows", "FHS", "Directory"]
 ---
 
 Docker에 대해 공부하다보니, Docker가 리눅스 운영체제를 기반으로 돌아가기도 하고, 각각의 docker image들에도 리눅스에서 정해진 디렉터리 구조를 따라 파일들을 저장하다보니, 아무래도 리눅스 운영체제에 대한 기본적인 지식이라도 알아두는 게 좋을 것이란 생각이 들었다. 이로 인해 저번 시간에는 [**[OS] 운영체제의 구조**](/infra%20&%20cloud/os-structure-of-os/)에 대해 알아보았다면, 이번 시간에는 그 중 리눅스 운영체제에 대해 간단히 알아보고자 한다. 
