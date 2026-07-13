@@ -1,7 +1,9 @@
 ---
 title: "draw.io로 다이어그램 그리기"
-category: "tip"
+category: "Tips"
 tag: ["tip", "draw.io", "diagram"]
+redirect_from:
+    - /tip/how-to-draw-io/
 ---
 
 draw.io는 UML, ERD와 더불어 일반적인 다이어그램도 그릴 수 있는 온라인 무료 사이트입니다. 
