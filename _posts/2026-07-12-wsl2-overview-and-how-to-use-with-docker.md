@@ -199,6 +199,38 @@ Docker Desktop 실행 후 위 화면과 같이 계속 무한로딩에 걸리는 
 </div>
 </details>
 
+<details id="ref-3">
+<summary>
+    <strong>
+        <i>참고) Docker Desktop 실행 후에도 리눅스에서 docker 명령어가 듣지 않는 현상.</i>
+    </strong>
+    <a href="#ref-3" class="material-symbols-outlined">link</a>
+</summary>
+<div markdown="1">
+Docker Desktop을 키고 도커 엔진을 실행시키고 있는 상태에서, 리눅스에서 아래와 같이 docker 명령어를 정상적으로 입력했음에도 에러 메시지를 내뿜는다면, 
+    
+```bash
+failed to connect to the docker API at unix:///var/run/docker.sock; check if the path is correct and if the daemon is running: dial unix /var/run/docker.sock: connect: no such file or directory
+```
+    
+아래와 같은 과정을 시도해보자. 
+    
+1. Docker Desktop 프로그램에서 맨 위 오른쪽의 톱니바퀴 모양의 “설정” 버튼 클릭 후 등장하는 화면에서 왼쪽 사이드바에서 “Resources” 클릭 ⇒ 중앙 화면에서 “WSL integration” 클릭 후, “Enable integration with my default WSL distro”와 “Enable integration with additional distros” 항목에 체크 표시들이 되어 있지 않다면 이를 체크 표시한다. 그 후 화면 우하단에 있는 “Apply & restart”를 클릭하여 변경된 설정을 적용한다. 
+        
+    ![wsl2에서 docker 명령어 실행이 안될 때의 해결책 1.png](/images/2026-07-12/wsl2-overview-and-how-to-use-with-docker/21.png)
+
+2. 설정 변경 적용 후 Docker Destkop이 자동으로 껐다가 다시 켜졌을 것이다. 도커 엔진이 실행 중인지 확인한 후, 리눅스 터미널 창을 다시 확인한다. 혹시 모르니 기존에 켜져 있던 리눅스 터미널 창이 있다면 끄고 새로운 창을 켜서 시도해보길 바란다. 
+
+3. 다음과 같이 도커 명령어들이 정상적으로 작동한다면 문제 해결.
+        
+    <div class="single-image">
+      <img width="80%" src="/images/2026-07-12/wsl2-overview-and-how-to-use-with-docker/22.png" alt="image">
+    </div>
+        
+    ![docker desktop 설정 변경 후 docker 명령어가 잘 듣는다 2.png](/images/2026-07-12/wsl2-overview-and-how-to-use-with-docker/23.png)
+</div>
+</details>
+
 ---
 
 References
