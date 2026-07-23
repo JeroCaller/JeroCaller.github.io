@@ -153,7 +153,7 @@ docker cp /mnt/c/docker/study/index.html my-web-server:/usr/local/apache2/htdocs
 
 이 때 주의할 점이 있다. Windows에서 작성한 파일을 도커 컨테이너로 옮기고자 하는 경우, Windows에서의 폴더 및 파일 경로는 `C:\docker\study` 와 같이 명시하면 해당 명령어가 제대로 수행되지 않을 것이다. 대신, `/mnt/c` 로 시작하도록 하면 해당 문제는 해결될 것이다. WSL 2를 실행시킬 때 Windows에서의 C, D 드라이브 등은 리눅스에서 `/mnt/c` , `/mnt/d` 등 `/mnt` 폴더를 통해 자동으로 마운트 되기에 이 경로를 대신 사용하는 것이다. 
 
-한 편, `/usr/local/apache2/htdocs/` 경로는 `httpd` 컨테이너에서 이미 정한 경로로, 웹 서버에 자신이 원하는 정적 파일들을 해당 폴더에 위치시키면 웹 브라우저에서 해당 컨텐츠들을 볼 수 있다. 해당 `httpd` 에 대한 자세한 사항은 [https://hub.docker.com/_/httpd](https://hub.docker.com/_/httpd) 을 참고.
+한 편, `/usr/local/apache2/htdocs/` 경로는 `httpd` 컨테이너에서 이미 정한 경로로, 웹 서버에 자신이 원하는 정적 파일들을 해당 폴더에 위치시키면 웹 브라우저에서 해당 컨텐츠들을 볼 수 있다. 해당 `httpd` 에 대한 자세한 사항은 [https://hub.docker.com/\_/httpd](https://hub.docker.com/_/httpd) 을 참고.
 
 위 명령어를 입력하여 엔터키를 친 후 다음과 같은 결과 메시지가 나오면 성공이다.
 
