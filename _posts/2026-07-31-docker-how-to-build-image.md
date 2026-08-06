@@ -333,7 +333,7 @@ my-ws-im:1.0.0      d0cb6da9000c        175MB         45.2MB
 
 # Docker image의 구조
 
-Docker image는 여러 개의 layer로 구성되어 있는 layered architecture를 가진다. 이 각각의 레이어들은 파일의 추가, 수정, 삭제, 복사 등 파일 시스템에 변화를 줄 때마다 생성되어 이전 레이어 위에 stack처럼 계속 쌓이는 구조이다. 
+Docker image는 여러 개의 layer들로 구성되어 있는 구조를 가진다. 이 각각의 레이어들은 파일의 추가, 수정, 삭제, 복사 등 파일 시스템에 변화를 줄 때마다 생성되어 이전 레이어 위에 stack처럼 계속 쌓이는 구조이다. 
 
 ```docker
 FROM ubuntu:22.04
