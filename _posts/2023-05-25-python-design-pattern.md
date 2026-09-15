@@ -1,7 +1,9 @@
 ---
 title: "[지식/이론][python] 디자인 패턴"
-category: knowledge
+category: "Knowledge"
 tag: ["python", "knowledge", "디자인 패턴", "design pattern"]
+redirect_from:
+  - /knowledge/python-design-pattern/
 ---
 # 개요
 

@@ -1,7 +1,9 @@
 ---
 title: "[지식/이론][python] return VS yield"
-category: knowledge
+category: "Knowledge"
 tag: ["python", "knowledge", "return", "yield"]
+redirect_from:
+  - /knowledge/python-return-vs-yield/
 ---
 
 # 제너레이터 (generator)

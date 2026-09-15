@@ -1,7 +1,9 @@
 ---
 title: "[지식/이론][python] 모듈(module)"
-category: knowledge
+category: "Knowledge"
 tag: ["python", "knowledge", "module"]
+redirect_from:
+  - /knowledge/python-module/
 ---
 # 개요
 
