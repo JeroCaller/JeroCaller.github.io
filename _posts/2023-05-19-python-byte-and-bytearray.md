@@ -2,8 +2,6 @@
 title: "[지식/이론][python] byte와 byte array"
 category: "Knowledge"
 tag: ["python", "knowledge", "byte", "bytearray"]
-redirect_from:
-  - /knowledge/python-byte-and-bytearray/
 ---
 파이썬에는 raw byte(원시 바이트) 처리 시 사용할 수 있는 자료형으로 불변형의 바이트(byte)와 가변형의 바이트 배열(bytearray)이 존재한다. 두 자료형 모두 0~255 범위의 부호 없는 8비트 정수 시퀀스로 구성되어있다. 
 

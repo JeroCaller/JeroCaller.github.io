@@ -2,8 +2,6 @@
 title: "[지식/이론][python] 멀티 프로세스와 멀티 스레드"
 category: "Knowledge"
 tag: ["python", "knowledge", "process", "thread", "mutex", "semaphore", "deadlock", "spinlock"]
-redirect_from:
-  - /knowledge/python-multi-process-and-thread/
 ---
 이 페이지의 내용들 중 더 자세한 내용이나 생략된 내용들은 [동시성 (concurrency)](/python/concurrency-in-python/), [프로그램과 프로세스 (program and process) (1)](/python/program-process/), [프로그램과 프로세스 (2)](/python/program-process-(2)/) 문서에서 더 자세히 살펴볼 수 있다. 
 

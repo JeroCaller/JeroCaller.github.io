@@ -2,8 +2,6 @@
 title: "[지식/이론][python] 참과 거짓"
 category: "Knowledge"
 tag: ["python", "knowledge", "false", "style guide"]
-redirect_from:
-  - /knowledge/python-true-and-false/
 ---
 # 암묵적 False
 
